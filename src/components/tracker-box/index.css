@@ -1,0 +1,21 @@
+.scroll-list{
+    min-height: 100px;
+    max-height:150px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    word-wrap: break-word;
+}
+.tracker-list{
+    border: 2px solid #000;
+
+    padding:10px;
+    overflow: hidden;
+}
+.tracker-head{
+    font-weight: bold;
+    color: #0747a6;
+}
+.tracking-item{
+    line-height: 20px;
+    padding: 5px 0;
+}

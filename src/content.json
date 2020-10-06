@@ -1,0 +1,32 @@
+[
+    {
+        "Sprint": "Sprint 1",
+        "Velocity": "40",
+        "Scope Changes": "0",
+        "Completed Date": "2020-09-13",
+        "Sprint Report": "",
+        "Retro Inputs": [
+            "1",
+            "2"
+        ],
+        "Happiness Index": 4
+    },
+    {
+        "Sprint": "Sprint 2",
+        "Velocity": "30",
+        "Scope Changes": "+2.5%",
+        "Completed Date": "2020-09-20",
+        "Sprint Report": "",
+        "Retro Inputs": [],
+        "Happiness Index": 0
+    },
+    {
+        "Sprint": "Sprint 3",
+        "Velocity": "4",
+        "Scope Changes": "-3.0%",
+        "Completed Date": "2020-09-27",
+        "Sprint Report": "",
+        "Retro Inputs": "",
+        "Happiness Index": 1.5
+    }
+]

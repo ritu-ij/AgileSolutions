@@ -1,0 +1,17 @@
+.row-head-item,
+.row-item {
+  display: table-cell;
+  padding:0 5px;
+}
+.table-row,
+.table-row-head {
+  display: table-row;
+}
+.table-row-head {
+  font-weight: bold;
+}
+.text-link {
+  text-decoration: underline;
+  cursor: pointer;
+  color: #0747a6;
+}

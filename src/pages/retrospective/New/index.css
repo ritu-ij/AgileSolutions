@@ -1,0 +1,13 @@
+.new-retro-index{
+    float:right;
+}
+.new-retro-index input{
+    width: 40px;
+    margin-left: 5px;
+}
+.new-retro-title{
+    display: inline-block;
+}
+header{
+    clear: both;
+}
