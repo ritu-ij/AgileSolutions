@@ -68,7 +68,9 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/de
 This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
 
 ### Stepts to run in local system
-Please install ngrok using 'npm install ngrok' for tunneling requests to localhost
+- Please install ngrok using 'npm install ngrok' for tunneling requests to localhost. 
+
+Note: Every time the ngrok is restarted the new HTTPS URL has to be updated in the atlassian-connect.json file in root directory. This file needs to be present in the build folder as well. If not there, please copy it manually
 
 ### Steps to run in production
 
