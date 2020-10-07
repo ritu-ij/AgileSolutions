@@ -1,7 +1,5 @@
 import { checkHttpResponse } from "./httpResponseInterceptor";
 
-//import { getItemFromLocalStorage , logOut} from '../util/appUtil';
-
 const timeout = 15000;
 
 export const httpFetch = (url, method, body, isAuthenticated = false, shouldReturnJSON = true, options = {}) => {
@@ -12,16 +10,8 @@ export const httpFetch = (url, method, body, isAuthenticated = false, shouldRetu
     if (body) {
         option['body'] = JSON.stringify(body)
     }
-    // if (isAuthenticated) {
-    //     if (getItemFromLocalStorage('refreshToken')) {
-    //         option.headers = { ...option.headers, "auth-token": getItemFromLocalStorage('refreshToken') }
-    //     } else {
-    //         logOut();
-    //         return;
-    //     }
-    // }
     let timer;
-    option.headers = { ...option.headers, "content-type": "application/json" };
+    option.headers = { ...option.headers, "content-type": "application/json" ,"Access-Control-Allow-Headers":'*'};
     return new Promise((resolve, reject) => {
         timer = setTimeout(() => {
                 const error = {};

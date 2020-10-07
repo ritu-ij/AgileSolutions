@@ -1,0 +1,19 @@
+.main-div{
+    margin: 30px 60px;
+
+    .container-search{
+        border: 1px solid;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .container-stories{
+        display: flex;
+        &>div{
+            width: calc(50% - 30px);
+        }
+        &>div:first-child{
+            margin-right: 60px;
+        }
+    }
+}

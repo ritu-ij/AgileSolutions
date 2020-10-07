@@ -1,0 +1,28 @@
+.people_list{
+    border: 1px solid;
+    margin: 30px 0;
+    .top-section{
+        border-bottom: 1px solid;
+        padding: 15px;
+    }
+    ul.list{
+        list-style: none;
+        max-height: 350px;
+        overflow: auto;
+        li{
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            .avatar{
+                background-color: blue;
+                color: #ffffff;
+                font-weight: 400;
+                padding: 10px 15px;
+                border-radius: 50%;
+                margin-right: 10px;
+            }
+        }
+
+    }
+}
