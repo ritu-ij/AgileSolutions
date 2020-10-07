@@ -8,8 +8,8 @@ const RetrospectiveNew = (props) => {
     let col_data = {};
     const [state, setState] = useState({ boards: { ...col_data } });
     useEffect(() => {
-        Object.keys(DefaultContent.retro_boards_config).map(item => {
-            col_data[item] = {
+        DefaultContent.retro_boards_config.map(item => {
+            col_data[item.key] = {
                 retros: {},
                 counter: 0
             };

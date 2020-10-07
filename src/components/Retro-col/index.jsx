@@ -7,10 +7,11 @@ import PlusIcon from '../../assets/plus';
 const RetroCol = (props) => {
     const { edit, DefaultContent, boards } = props;
 
-    const delBoard = (key) => {
-        if (DefaultContent[key]) {
-            DefaultContent[key] = null;
+    const delBoard = (event, key) => {
+        if (event) {
+            event.stopPropagation();
         }
+        props.delBoard(key);
     }
 
     const addRetroInput = (event, board_key) => {
@@ -30,20 +31,22 @@ const RetroCol = (props) => {
     }
     return (
         <section className="retro-col-container">
-            {DefaultContent && Object.keys(DefaultContent.retro_boards_config).map((item, keyParent) => {
+            {DefaultContent && DefaultContent.retro_boards_config.map((item, keyParent) => {
                 return (
-                    <div className="retro-col" key={item}>
+                    <div className="retro-col" key={item.key}>
                         <div className="retro-col-header">
-                            <span>{DefaultContent.retro_boards_config[item]}</span>
-                            {edit ? <div className="edit-actions"></div> : <span className="add-retro-item" onClick={(event) => { addRetroInput(event, item) }}>
-                                <PlusIcon backgroundColor={content.boardColors[keyParent]} />
-                            </span>}
+                            <span>{item.display}</span>
+                            {edit ? <div className="edit-actions">
+                                {item.display.length > 0 ? <span className="del-board" onClick={(ev) => { delBoard(ev, item.key) }}>Delete</span> : null}
+                            </div> : <span className="add-retro-item" onClick={(event) => { addRetroInput(event, item.key) }}>
+                                    <PlusIcon backgroundColor={content.boardColors[keyParent]} />
+                                </span>}
                         </div>
                         <div className="retro-inputs-container">
                             {!edit ?
-                                boards && boards[item] && Object.keys(boards[item]["retros"]).map((retro, key) => {
+                                boards && boards[item.key] && Object.keys(boards[item.key]["retros"]).map((retro, key) => {
                                     return (
-                                        <RetroItem data={boards[item]["retros"][retro]} parentKey={item} dataKey={retro} key={key} colorKey={keyParent}
+                                        <RetroItem data={boards[item.key]["retros"][retro]} parentKey={item.key} dataKey={retro} key={key} colorKey={keyParent}
                                             updateItem={updateItem}
                                             deleteItem={deleteItem}
                                             editItem={editItem} />

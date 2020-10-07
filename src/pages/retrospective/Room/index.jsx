@@ -1,24 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import RetroCol from '../../../components/Retro-col';
 import DefaultContent from './content.json';
 import './index.css';
 
 const RetroRoom = (props) => {
-    const {history}  = props;
+    const { history } = props;
+    const [state, setState] = useState({ retro_boards_config: DefaultContent.retro_boards_config });
     const createRetroSession = (event) => {
         if (event) {
             event.stopPropagation();
         }
         history.replace(`/Retrospective/Session/${props.match.params.id}`)
     }
-
+    const delBoard = (board_key) => {
+        let prev_state = { ...state };
+        console.log(board_key);
+        let idx = prev_state.retro_boards_config.findIndex(item => item.key === board_key);
+        prev_state.retro_boards_config.splice(idx, 1)
+        prev_state.retro_boards_config.push({
+            key: board_key,
+            display: ""
+        })
+        console.log(prev_state);
+        setState(prev_state);
+    }
     return (
         <div id="container">
             <header>
                 <h1 className="new-retro-title">{props.match.params.id} Retro</h1>
             </header>
             <div id="track-progress">
-                <RetroCol edit={true} DefaultContent={DefaultContent}/>
+                <RetroCol edit={true} DefaultContent={state} delBoard={delBoard} />
             </div>
             <button id="create-room" onClick={(event) => { createRetroSession(event) }}>Create Room</button>
         </div>
