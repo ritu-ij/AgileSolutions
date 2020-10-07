@@ -38,6 +38,21 @@ const RetrospectiveNew = (props) => {
         }
         setState(prev_data);
     }
+
+    const delRetroFromBoard = (board_key, item_key, value) => {
+        let prev_data = { ...state };
+        let effective_key = item_key;
+        delete prev_data.boards[board_key]["retros"][effective_key]
+        prev_data.boards[board_key].counter -= 1;
+        setState(prev_data);
+    }
+    const editRetroInBoard = (board_key, item_key, value) => {
+        let prev_data = { ...state };
+        let effective_key = item_key;
+        prev_data.boards[board_key]["retros"][effective_key].edit = true;
+        setState(prev_data);
+    }
+
     return (
         <div id="container">
             <header>
@@ -51,7 +66,10 @@ const RetrospectiveNew = (props) => {
             </header>
 
             <div id="track-progress">
-                <RetroCol edit={false} DefaultContent={DefaultContent} {...state} addRetroToBoard={addRetroToBoard} />
+                <RetroCol edit={false} DefaultContent={DefaultContent} {...state}
+                    addRetroToBoard={addRetroToBoard}
+                    delRetroFromBoard={delRetroFromBoard}
+                    editRetroInBoard={editRetroInBoard} />
             </div>
         </div>
     )

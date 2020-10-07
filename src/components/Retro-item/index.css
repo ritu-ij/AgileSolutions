@@ -1,6 +1,5 @@
 .retro-item-container{
 min-height: 60px;
-padding: 5px;
 float: left;
 width: 100%;
 margin-top:5px;
@@ -10,7 +9,7 @@ margin-top:5px;
 }
 .retro-item-container input{
     width:100%;
-    min-height: 30px;
+    min-height: 40px;
 }
 .retro-item-container input:focus{
     outline:none;
@@ -18,4 +17,16 @@ margin-top:5px;
 .retro-content{
     color: #FFFFFF;
     word-wrap: break-word;
+    min-height: 40px;
+    padding: 5px;
+}
+.retro-item{
+    float: right;
+    margin-left:5px;
+    color: #ffffff;
+    cursor: pointer;
+}
+.retro-item-actions{
+    height: 20px;
+    padding: 0 5px 5px;
 }
