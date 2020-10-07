@@ -29,4 +29,5 @@ margin-top:5px;
 .retro-item-actions{
     height: 20px;
     padding: 0 5px 5px;
+    user-select: none;
 }
