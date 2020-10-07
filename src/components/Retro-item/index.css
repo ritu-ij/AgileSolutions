@@ -1,0 +1,21 @@
+.retro-item-container{
+min-height: 60px;
+padding: 5px;
+float: left;
+width: 100%;
+margin-top:5px;
+}
+.retro-item-container:first-child{
+    margin-top: 0;
+}
+.retro-item-container input{
+    width:100%;
+    min-height: 30px;
+}
+.retro-item-container input:focus{
+    outline:none;
+}
+.retro-content{
+    color: #FFFFFF;
+    word-wrap: break-word;
+}

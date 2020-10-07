@@ -18,7 +18,7 @@ const TableRow = (props) => {
         if (event) {
             event.stopPropagation();
         }
-        history.replace(`/Retrospective/Session/${sprint}`);
+        history.replace(`/Retrospective/Room/${sprint}`);
     }
 
     const formatDetailedReports = (val, createNew) => {
@@ -26,7 +26,7 @@ const TableRow = (props) => {
             return (<span className={'text-link'} onClick={(event) => { showDetails(event, val) }}>View</span>)
         } else {
             if (createNew) {
-                return (<span className={'text-link'} onClick={(event) => { createRetro(event, rowData["Sprint"]) }}>Create New/Join</span>)
+                return (<span className={'text-link'} onClick={(event) => { createRetro(event, rowData["Sprint"]) }}>Create New</span>)
             }
             return (<span>NA</span>)
         }
@@ -40,7 +40,7 @@ const TableRow = (props) => {
             <div className={'row-item'}>{formatDate(rowData["Completed Date"])}</div>
             <div className={'row-item'}>{formatDetailedReports(rowData["Sprint Report"], false)}</div>
             <div className={'row-item'}>{formatDetailedReports(rowData["Retro Inputs"], true)}</div>
-            <div className={'row-item'} title={`${rowData["Happiness Index"]} out of 5`}>{<StarRating rate={rowData["Happiness Index"]} />}</div>
+            <div id="row-rating" className={'row-item'} title={`${rowData["Happiness Index"]} out of 5`}>{<StarRating rate={rowData["Happiness Index"]} />}</div>
         </div>
     )
 }
