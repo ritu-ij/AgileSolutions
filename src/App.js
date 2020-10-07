@@ -1,22 +1,32 @@
 import React from 'react';
-import {createBrowserHistory} from 'history';
-import {BrowserRouter, Route, } from 'react-router-dom';
-//import PlanningPoker from './pages/planning-poker';
-import RetrospectiveDashboard from './pages/retrospective/Dashboard';
-import RetrospectiveNew from './pages/retrospective/New';
-import RetroRoom from './pages/retrospective/Room';
-import RetroContent from './content.json';
+import { createBrowserHistory } from 'history';
+import { BrowserRouter, Route, } from 'react-router-dom';
+import PlanningPoker from './pages/planning-pocker/Dashboard';
+import constants from './helpers/constants';
+import {getAuth, getUserData } from './api/apiCalls';
 import './App.css';
 
 function App() {
   const history = createBrowserHistory();
+  const auth_token = localStorage.getItem('auth_token');
+  let search = window.location.search;
+  let params = new URLSearchParams(search);
+  const code = params.get('code');
+  if (!auth_token && !code) {
+    window.location.href = constants.REST_API_authorization_URL;
+  } else{
+    if(!auth_token || auth_token == 'undefined'){
+      getAuth(code)
+    } else{
+      let user_data = localStorage.getItem('user_details')
+      if(!user_data || user_data == 'undefined'){
+        getUserData()
+      }
+    }
+  }
   return (
     <BrowserRouter history={history}>
-      {/* <Route path="/" component={PlanningPoker} /> */}
-      <Route exact path='/' render={(props) => (<RetrospectiveDashboard {...props} content={RetroContent} />)} />
-      <Route exact path='/Retrospective/Session/:id' render={(props) => (<RetrospectiveNew {...props} content={RetroContent} />)} />
-      <Route exact path='/Retrospective/Room/:id' render={(props) => (<RetroRoom {...props} content={RetroContent} />)} />
-      <Route exact path='/Retrospective/Dashboard' render={(props) => (<RetrospectiveDashboard {...props} content={RetroContent} />)} />
+      <Route path="/" component={PlanningPoker} />
     </BrowserRouter>
   )
 }
