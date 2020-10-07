@@ -20,6 +20,12 @@ const RetroCol = (props) => {
     const updateItem = (item_key, value, board_key) => {
         props.addRetroToBoard(board_key, item_key, value);
     }
+    const deleteItem = (item_key, value, board_key) => {
+        props.delRetroFromBoard(board_key, item_key, value);
+    }
+    const editItem = (item_key, value, board_key) => {
+        props.editRetroInBoard(board_key, item_key, value);
+    }
     return (
         <section className="retro-col-container">
             {DefaultContent && Object.keys(DefaultContent.retro_boards_config).map((item, keyParent) => {
@@ -33,7 +39,10 @@ const RetroCol = (props) => {
                             {!edit ?
                                 boards && boards[item] && Object.keys(boards[item]["retros"]).map((retro, key) => {
                                     return (
-                                        <RetroItem data={boards[item]["retros"][retro]} parentKey={item} dataKey={retro} key={key} colorKey={keyParent} updateItem={updateItem} />
+                                        <RetroItem data={boards[item]["retros"][retro]} parentKey={item} dataKey={retro} key={key} colorKey={keyParent}
+                                            updateItem={updateItem}
+                                            deleteItem={deleteItem}
+                                            editItem={editItem} />
                                     )
                                 })
                                 : null}
