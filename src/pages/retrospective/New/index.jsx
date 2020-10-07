@@ -49,6 +49,19 @@ const RetrospectiveNew = (props) => {
         prev_data.boards[board_key]["retros"][effective_key].edit = true;
         setState(prev_data);
     }
+    const updateHI = (event) => {
+        if (event) {
+            event.stopPropagation();
+            if (event.which == 13) {
+                let val = event.target.value;
+                if (val >= 0 && val <= 5) {
+                    alert(val);
+                } else {
+                    event.target.value = null;
+                }
+            }
+        }
+    }
 
     return (
         <div id="container">
@@ -58,7 +71,8 @@ const RetrospectiveNew = (props) => {
                 </h1>
                 <div className="new-retro-index">Happiness Index:
                 <span>
-                        <input type="number" name="hpyIdx" min={0} max={5} /></span> / 5
+                        <input type="number" name="hpyIdx" title="Please select a value between 0 and 5" min={0} max={5} onKeyPress={(ev) => { updateHI(ev) }} />
+                    </span> / 5
                 </div>
             </header>
 
