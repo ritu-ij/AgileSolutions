@@ -1,5 +1,8 @@
-import { httpFetch } from './http';
 import constant from '../helpers/constants';
+const resource_list = localStorage.getItem('resource_list');
+const CLOUD_ID = resource_list[0].id;
+const baseURl = `https://api.atlassian.com/ex/jira/${CLOUD_ID}/`;
+
 
 export const getAuth = (code) => {
     fetch(constant.API.getAuth, {
@@ -26,6 +29,7 @@ export const getAuth = (code) => {
                 localStorage.setItem('scope', data.scope)
                 console.log(response, 'response', data.access_token)
                 getUserData();
+                getAccessableResource();
             }
             return response;
         })
@@ -69,22 +73,21 @@ export const getAccessableResource = () => {
             return response.text();
         })
         .then(response => {
-            localStorage.setItem('user_details', JSON.stringify(response))
+            localStorage.setItem('resource_list', JSON.stringify(response))
             return response;
         })
         .catch(err => console.error(err));
 }
 
-export const getAllProject = (key) =>{
+export const getAllProject = () =>{
     const api_token = localStorage.getItem('auth_token')
     const user = JSON.parse(localStorage.getItem('user_details'))
 
-    fetch(`${constant.BaseURL}rest/api/2/${key}`, {
+    fetch(`${baseURl}rest/api/2/project`, {
         method: 'GET',
         headers: {
-            'Authorization': `Basic ${Buffer.from(
-            `${user.email}:${api_token}`).toString('base64')}`,
-          'Accept': 'application/json'
+            'Authorization': `Bearer ${api_token}`,
+            'Accept': 'application/json'
         }
     })
         .then(response => {

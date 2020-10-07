@@ -3,7 +3,7 @@ import { createBrowserHistory } from 'history';
 import { BrowserRouter, Route, } from 'react-router-dom';
 import PlanningPoker from './pages/planning-pocker/Dashboard';
 import constants from './helpers/constants';
-import {getAuth, getUserData,getAccessableResource} from './api/apiCalls';
+import {getAuth, getUserData } from './api/apiCalls';
 import './App.css';
 
 function App() {
@@ -24,7 +24,6 @@ function App() {
       }
     }
   }
-  getAccessableResource()
   return (
     <BrowserRouter history={history}>
       <Route path="/" component={PlanningPoker} />
