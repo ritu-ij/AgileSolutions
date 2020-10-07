@@ -20,21 +20,18 @@ const RetrospectiveNew = (props) => {
     const addRetroToBoard = (board_key, item_key, value) => {
         let prev_data = { ...state };
         if (!item_key) {
-            prev_data.boards[board_key]["retros"]["current"] = {
+            let effective_key = "current" + prev_data.boards[board_key].counter;
+            prev_data.boards[board_key]["retros"][effective_key] = {
                 content: "",
                 edit: true
             }
+            prev_data.boards[board_key].counter += 1;
         } else {
             let effective_key = item_key;
-            if (item_key === "current") {
-                effective_key = "retro" + prev_data.boards[board_key].counter;
-                delete prev_data.boards[board_key]["retros"][item_key];
-            }
             prev_data.boards[board_key]["retros"][effective_key] = {
                 content: value,
                 edit: false
             }
-            prev_data.boards[board_key].counter += 1;
         }
         setState(prev_data);
     }

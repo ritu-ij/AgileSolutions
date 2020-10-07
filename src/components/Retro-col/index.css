@@ -8,9 +8,11 @@
 }
 .retro-col-header {
     font-weight: bold;
+    position: relative;
+    margin-bottom: 5px;
 }
 .retro-inputs-container {
-    padding: 5px 10px;
+    padding: 5px;
     overflow: auto;
     height: 500px;
     background: #f4f5f7;
@@ -28,6 +30,7 @@ border: none !important;
 padding: 5px 20px;
 }
 .add-retro-item{
-    float: right;
     cursor: pointer;
+    position: absolute;
+    right: 0;
 }
