@@ -4,33 +4,33 @@ import './index.css';
 
 const RetroItem = (props) => {
     const { data, colorKey, dataKey, parentKey } = props;
-    console.log(data);
 
-    const updateRetroItem = (event) => {
+    const updateRetroItem = (event, item_key) => {
         let val = null;
         if (event) {
             event.stopPropagation();
             if (event.which == 13) {
                 val = event.target.value;
-                props.updateItem(dataKey, val, parentKey);
+                event.target.value = "";
+                props.updateItem(item_key, val, parentKey);
             }
         }
     }
 
-    const deleteRetroItem = (event) => {
+    const deleteRetroItem = (event, item_key) => {
         let val = null;
         if (event) {
             event.stopPropagation();
             val = event.target.value;
-            props.deleteItem(dataKey, val, parentKey);
+            props.deleteItem(item_key, val, parentKey);
         }
     }
 
-    const editRetroItem = (event) => {
+    const editRetroItem = (event, item_key) => {
         let val = null;
         if (event) {
             event.stopPropagation();
-            props.editItem(dataKey, val, parentKey);
+            props.editItem(item_key, val, parentKey);
         }
     }
     return (
@@ -38,17 +38,17 @@ const RetroItem = (props) => {
             <div className="retro-content">
                 {
                     data.edit ?
-                        <input type="text" defaultValue={data.content} className="retro-input" onKeyPress={(ev) => { updateRetroItem(ev) }} />
+                        <input type="text" defaultValue={data.content} className="retro-input" onKeyPress={(ev) => { updateRetroItem(ev, dataKey) }} />
                         : data.content
                 }
             </div>
             <div className="retro-item-actions">
                 {
                     !data.edit ?
-                        <span className="retro-item edit-retro-item" onClick={(ev) => { editRetroItem(ev) }}>Edit</span>
+                        <span className="retro-item edit-retro-item" onClick={(ev) => { editRetroItem(ev, dataKey) }}>Edit</span>
                         : null
                 }
-                <span className="retro-item del-retro-item" onClick={(ev) => { deleteRetroItem(ev) }}>Delete</span>
+                <span className="retro-item del-retro-item" onClick={(ev) => { deleteRetroItem(ev, dataKey) }}>Delete</span>
             </div>
         </section>
     )

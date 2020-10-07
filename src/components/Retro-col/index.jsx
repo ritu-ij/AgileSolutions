@@ -1,6 +1,8 @@
 import React from 'react';
 import RetroItem from '../Retro-item';
+import content from './content.json';
 import './index.css';
+import PlusIcon from '../../assets/plus';
 
 const RetroCol = (props) => {
     const { edit, DefaultContent, boards } = props;
@@ -33,7 +35,9 @@ const RetroCol = (props) => {
                     <div className="retro-col" key={item}>
                         <div className="retro-col-header">
                             <span>{DefaultContent.retro_boards_config[item]}</span>
-                            {edit ? <div className="edit-actions"></div> : <span className="add-retro-item" onClick={(event) => { addRetroInput(event, item) }}>    Add</span>}
+                            {edit ? <div className="edit-actions"></div> : <span className="add-retro-item" onClick={(event) => { addRetroInput(event, item) }}>
+                                <PlusIcon backgroundColor={content.boardColors[keyParent]} />
+                            </span>}
                         </div>
                         <div className="retro-inputs-container">
                             {!edit ?
