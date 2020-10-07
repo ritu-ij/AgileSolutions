@@ -1,0 +1,36 @@
+.retro-col-container{
+    margin-top: 30px;
+}
+.retro-col{
+    display: inline-block;
+    width: calc(100%/6);
+    padding-right: 10px;
+}
+.retro-col-header {
+    font-weight: bold;
+    position: relative;
+    margin-bottom: 5px;
+}
+.retro-inputs-container {
+    padding: 5px;
+    overflow: auto;
+    height: 500px;
+    background: #f4f5f7;
+}
+#create-room{
+float: right;
+margin-top: 20px;
+margin-right: 10px;
+cursor: pointer;
+background: #0065FF;
+color: #ffffff;
+height: 30px;
+line-height: 20px;
+border: none !important;
+padding: 5px 20px;
+}
+.add-retro-item{
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+}

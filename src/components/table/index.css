@@ -1,7 +1,11 @@
 .row-head-item,
 .row-item {
   display: table-cell;
-  padding:0 5px;
+  padding: 10px;
+  text-align: center;
+}
+.row-item{
+  background: #f4f5f7;
 }
 .table-row,
 .table-row-head {
@@ -9,9 +13,12 @@
 }
 .table-row-head {
   font-weight: bold;
+  background: rgba(9,30,66,.08) !important;
 }
 .text-link {
-  text-decoration: underline;
   cursor: pointer;
   color: #0747a6;
+}
+#row-rating{
+  text-align: left;
 }

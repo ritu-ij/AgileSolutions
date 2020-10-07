@@ -11,11 +11,15 @@ const Tracker = (props) => {
             <div className="tracker-list">
                 <div className="scroll-list">{
                     props.content.map((item, key) => {
+                        let checked = {};
+                        if (props.defaultChecked) {
+                            checked = { checked: props.defaultChecked }
+                        }
                         return (
-                            <div className="tracking-item">
-                                <input type="checkbox" />
+                            <div className="tracking-item" key={key}>
+                                <input type="checkbox" {...checked} />
                                 <span>{item}</span>
-                                </div>
+                            </div>
                         )
                     })
                 }
