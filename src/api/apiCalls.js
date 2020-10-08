@@ -192,3 +192,50 @@ export const searchIsuue = (project) =>{
         })
         .catch(err => console.error(err));
 }
+
+
+export const getIssueDetails = (issue_id) =>{
+    const resource_list = JSON.parse(localStorage.getItem('resource_list'));
+    const CLOUD_ID = resource_list && resource_list.length > 0 ?resource_list[0].id:'';
+    const baseURl = `https://api.atlassian.com/ex/jira/${CLOUD_ID}/`;
+    const api_token = localStorage.getItem('auth_token');
+    const query="test"
+    return fetch(`${baseURl}rest/api/2/issue/${issue_id}`, {
+        method: 'GET',
+        headers: {
+            'Authorization': `Bearer ${api_token}`,
+            'Accept': 'application/json'
+        }
+    })
+        .then(response => {
+            return response.text();
+        })
+        .then(response => {
+            return JSON.parse(response);
+        })
+        .catch(err => console.error(err));
+}
+
+
+export const EditIssueDetails = (issue_id,data) =>{
+    const resource_list = JSON.parse(localStorage.getItem('resource_list'));
+    const CLOUD_ID = resource_list && resource_list.length > 0 ?resource_list[0].id:'';
+    const baseURl = `https://api.atlassian.com/ex/jira/${CLOUD_ID}/`;
+    const api_token = localStorage.getItem('auth_token');
+    const query="test"
+    return fetch(`${baseURl}rest/api/2/issue/${issue_id}`, {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${api_token}`,
+            'Accept': 'application/json'
+        },
+        body: data
+    })
+        .then(response => {
+            return response.text();
+        })
+        .then(response => {
+            return JSON.parse(response);
+        })
+        .catch(err => console.error(err));
+}
