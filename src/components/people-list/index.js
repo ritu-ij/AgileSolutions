@@ -1,24 +1,21 @@
-import React,{Component} from 'react';
+import React, { Component } from 'react';
 import './index.scss';
 
-class peopleList extends Component {
-    state = {  }
-    render() { 
-        return ( 
-            <div className="people_list">
-                <div className="top-section">
-                    <h3>People</h3>
-                </div>
-                <ul className="list">
-                    <li><div className="avatar">N</div>nency</li>
-                    <li><div className="avatar">N</div>nency</li>
-                    <li><div className="avatar">N</div>nency</li>
-                    <li><div className="avatar">N</div>nency</li>
-                    <li><div className="avatar">N</div>nency</li>
-                </ul>
-            </div> 
-        );
-    }
+const PeopleList = ({ data }) => {
+    return (
+        <div className="people_list">
+            <div className="top-section">
+                <h3>People</h3>
+            </div>
+            <ul className="list">
+                {
+                    data && data.length > 0 && 
+                    data.map((user,i)=>user.accountType == 'atlassian' && <li><img src={user.avatarUrls['16x16']}/>{user.displayName}</li>)
+                }
+                
+            </ul>
+        </div>
+    );
 }
- 
-export default peopleList;
+
+export default PeopleList;
