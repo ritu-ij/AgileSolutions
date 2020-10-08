@@ -32,7 +32,6 @@ const RetrospectiveNew = (props) => {
         channel.bind('content', data => {
             console.log("received data");
             console.log(data);
-            //console.log(state);
             setState(data);
         });
     }, []);
@@ -53,6 +52,7 @@ const RetrospectiveNew = (props) => {
                 content: value,
                 edit: false
             }
+            setState(prev_data);
             syncRetroData(prev_data);
         }
     }
@@ -69,6 +69,7 @@ const RetrospectiveNew = (props) => {
         let effective_key = item_key;
         delete prev_data.boards[board_key]["retros"][effective_key]
         prev_data.boards[board_key].counter -= 1;
+        setState(prev_data);
         syncRetroData(prev_data);
     }
 
