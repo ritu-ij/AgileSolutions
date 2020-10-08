@@ -33,11 +33,13 @@ const RetroCol = (props) => {
         <section className="retro-col-container">
             {DefaultContent && DefaultContent.retro_boards_config.map((item, keyParent) => {
                 return (
-                    <div className="retro-col" key={item.key}>
+                    <div className="retro-col" key={item.key} style={{width: `calc(${100 / DefaultContent.retro_boards_config.length}%)`}}>
                         <div className="retro-col-header">
                             <span className="board-head">{item.display}</span>
                             {edit ? <div className="edit-actions">
-                                {item.display.length > 0 ? <span className="del-board" onClick={(ev) => { delBoard(ev, item.key) }}>Delete</span> : null}
+                                {item.display.length > 0 ? <span className="del-board" title="Delete board" onClick={(ev) => { delBoard(ev, item.key) }} style={{ backgroundColor: `${content.boardColors[keyParent]}` }}>
+                                    <i className="fa fa-trash"></i>
+                                </span> : null}
                             </div> : <span className="add-retro-item" onClick={(event) => { addRetroInput(event, item.key) }}>
                                     <PlusIcon backgroundColor={content.boardColors[keyParent]} />
                                 </span>}
