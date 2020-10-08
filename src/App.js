@@ -5,6 +5,7 @@ import PlanningPoker from './pages/planning-pocker/Dashboard';
 import constants from './helpers/constants';
 import {getAuth, getUserData , getAllProject,getAccessableResource} from './api/apiCalls';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
 
 function App() {
   const [ project , setProject ] = useState('');
