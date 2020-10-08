@@ -26,13 +26,13 @@ const StoriesList = ({ data }) => {
                 <>
                <div className="row head-section">
                 <div className="col-md-8 col-sm-6">
-                    <ul className="tab">
-                        <li className={storyType =='pending'?'selected':''} onClick={()=>setSToryType('pending')}><a >Pending</a></li>
-                        <li className={storyType =='ready'?'selected':''} onClick={()=>setSToryType('ready')}><a >Ready</a></li>
+                    <ul className="nav nav-tabs tab">
+                        <li className="nav-item" onClick={()=>setSToryType('pending')}><a className={storyType =='pending'?'active':''}>Pending</a></li>
+                        <li className="nav-item" onClick={()=>setSToryType('ready')}><a className={storyType =='ready'?'active':''}>Ready</a></li>
                     </ul>
                 </div>
                 <div className="col-md-4 col-sm-6">
-                    <button>Sync</button>
+                    <button className="sync"><i class="fa fa-spin fa-refresh" aria-hidden="true"></i></button>
                 </div>
             </div>
             <ul className="list-section">
