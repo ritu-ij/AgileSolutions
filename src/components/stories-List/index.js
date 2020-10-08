@@ -21,7 +21,7 @@ const StoriesList = ({ data }) => {
             </div>
             <ul className="list-section">
             {Array.isArray(data) && data.length > 0 && 
-            data.map((o,i)=><li>{o.id}--- {o.key}</li>)}
+            data.map((o,i)=><li onClick={()=>{console.log('test');set_issue(o)}}>{o.id}--- {o.key}</li>)}
             </ul>
                 </>
             }
