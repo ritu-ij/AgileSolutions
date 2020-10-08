@@ -7,27 +7,29 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "axios": "^0.20.0",
-    "history": "^5.0.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3",
-    "serve": "^11.3.2",
     "body-parser": "^1.19.0",
     "concurrently": "^5.3.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "history": "^5.0.0",
     "http-server": "^0.12.3",
     "pusher": "^3.0.1",
-    "pusher-js": "^7.0.0"
+    "pusher-js": "^7.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.3",
+    "serve": "^11.3.2"
   },
   "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm start \"",
     "start": "serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "heroku-postbuild": "npm run build",
-    "dev": "concurrently \"npm run server\" \"npm start \""
+    "server": "nodemon server.js"
   },
   "proxy": "http://localhost:5000",
   "eslintConfig": {
