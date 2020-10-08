@@ -35,7 +35,7 @@ const RetroCol = (props) => {
                 return (
                     <div className="retro-col" key={item.key}>
                         <div className="retro-col-header">
-                            <span>{item.display}</span>
+                            <span className="board-head">{item.display}</span>
                             {edit ? <div className="edit-actions">
                                 {item.display.length > 0 ? <span className="del-board" onClick={(ev) => { delBoard(ev, item.key) }}>Delete</span> : null}
                             </div> : <span className="add-retro-item" onClick={(event) => { addRetroInput(event, item.key) }}>

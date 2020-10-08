@@ -10,6 +10,7 @@ margin-top:5px;
 .retro-item-container input{
     width:100%;
     min-height: 40px;
+    border:none;
 }
 .retro-item-container input:focus{
     outline:none;
@@ -23,7 +24,7 @@ margin-top:5px;
 .retro-item{
     float: right;
     margin-left:5px;
-    color: #ffffff;
+    color: #FFFFFF;
     cursor: pointer;
 }
 .retro-item-actions{
