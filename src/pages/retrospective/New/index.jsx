@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import Pusher from 'pusher-js';
 import RetroCol from '../../../components/Retro-col';
 import DefaultContent from './content.json';
 import './index.css';
@@ -15,6 +17,17 @@ const RetrospectiveNew = (props) => {
             };
         })
         setState({ boards: col_data });
+        const pusher = new Pusher('d10973f4aeb6ded3f904', {
+            cluster: 'ap2',
+            encrypted: true
+        });
+        const channel = pusher.subscribe('retro-data');
+        channel.bind('content', data => {
+            console.log("received data");
+            console.log(data);
+            //console.log(state);
+            setState(data);
+        });
     }, []);
 
     const addRetroToBoard = (board_key, item_key, value) => {
@@ -26,14 +39,22 @@ const RetrospectiveNew = (props) => {
                 edit: true
             }
             prev_data.boards[board_key].counter += 1;
+            setState(prev_data);
         } else {
             let effective_key = item_key;
             prev_data.boards[board_key]["retros"][effective_key] = {
                 content: value,
                 edit: false
             }
+            syncRetroData(prev_data);
         }
-        setState(prev_data);
+    }
+
+    const syncRetroData = (data) => {
+        const payload = {
+            ...data
+        };
+        axios.post('/Retrospective/New', payload);
     }
 
     const delRetroFromBoard = (board_key, item_key, value) => {
@@ -41,14 +62,16 @@ const RetrospectiveNew = (props) => {
         let effective_key = item_key;
         delete prev_data.boards[board_key]["retros"][effective_key]
         prev_data.boards[board_key].counter -= 1;
-        setState(prev_data);
+        syncRetroData(prev_data);
     }
+    
     const editRetroInBoard = (board_key, item_key, value) => {
         let prev_data = { ...state };
         let effective_key = item_key;
         prev_data.boards[board_key]["retros"][effective_key].edit = true;
         setState(prev_data);
     }
+
     const updateHI = (event) => {
         if (event) {
             event.stopPropagation();
