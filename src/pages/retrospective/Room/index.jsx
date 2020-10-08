@@ -10,6 +10,11 @@ const RetroRoom = (props) => {
         if (event) {
             event.stopPropagation();
         }
+        let boards = [...state.retro_boards_config];
+        boards = boards.filter(item => {
+            return item.display.length > 0;
+        })
+        localStorage.setItem("boards", JSON.stringify(boards));
         history.replace(`/Retrospective/Session/${props.match.params.id}`)
     }
     const delBoard = (board_key) => {

@@ -3,7 +3,6 @@
 }
 .retro-col{
     display: inline-block;
-    width: calc(100%/6);
     padding-right: 10px;
 }
 .retro-col-header {
@@ -39,9 +38,15 @@ padding: 5px 20px;
 .edit-actions {
     float: right;
     line-height: 32px;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 .del-board{
     cursor: pointer;
+    color: #fff;
+    display: inline-block;
 }
 .board-head{
     line-height: 32px;
@@ -49,4 +54,9 @@ padding: 5px 20px;
     width: calc(100% - 40px);
     word-break: break-word;
     display: inline-block;
+}
+.fa-trash{
+    color: #fff;
+    padding: 6px 10px;
+    font-size: 20px;
 }

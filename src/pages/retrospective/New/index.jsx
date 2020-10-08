@@ -9,8 +9,15 @@ const RetrospectiveNew = (props) => {
     //const { content } = props;
     let col_data = {};
     const [state, setState] = useState({ boards: { ...col_data } });
+    const [content, setContent] = useState({ retro_boards_config: [] });
     useEffect(() => {
-        DefaultContent.retro_boards_config.map(item => {
+        let content1 = JSON.parse(localStorage.getItem("boards"));
+        if (content1) {
+            setContent({ retro_boards_config: content1 });
+        } else {
+            content1 = DefaultContent.retro_boards_config;
+        }
+        content1.map(item => {
             col_data[item.key] = {
                 retros: {},
                 counter: 0
@@ -64,7 +71,7 @@ const RetrospectiveNew = (props) => {
         prev_data.boards[board_key].counter -= 1;
         syncRetroData(prev_data);
     }
-    
+
     const editRetroInBoard = (board_key, item_key, value) => {
         let prev_data = { ...state };
         let effective_key = item_key;
@@ -100,7 +107,7 @@ const RetrospectiveNew = (props) => {
             </header>
 
             <div id="track-progress">
-                <RetroCol edit={false} DefaultContent={DefaultContent} {...state}
+                <RetroCol edit={false} DefaultContent={content} {...state}
                     addRetroToBoard={addRetroToBoard}
                     delRetroFromBoard={delRetroFromBoard}
                     editRetroInBoard={editRetroInBoard} />

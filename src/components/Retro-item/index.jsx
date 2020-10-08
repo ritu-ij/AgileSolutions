@@ -45,10 +45,14 @@ const RetroItem = (props) => {
             <div className="retro-item-actions">
                 {
                     !data.edit ?
-                        <span className="retro-item edit-retro-item" onClick={(ev) => { editRetroItem(ev, dataKey) }}>Edit</span>
+                        <span className="retro-item edit-retro-item" title="Edit" onClick={(ev) => { editRetroItem(ev, dataKey) }}>
+                            <i className="fa fa-pencil"></i>
+                        </span>
                         : null
                 }
-                <span className="retro-item del-retro-item" onClick={(ev) => { deleteRetroItem(ev, dataKey) }}>Delete</span>
+                <span className="retro-item del-retro-item" title="Delete" onClick={(ev) => { deleteRetroItem(ev, dataKey) }}>
+                    <i className="fa fa-times"></i>
+                </span>
             </div>
         </section>
     )
