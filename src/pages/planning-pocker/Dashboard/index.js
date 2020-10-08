@@ -21,18 +21,9 @@ const Dashboard = ({ project }) => {
     }, [project])
 
     useEffect(()=>{
-        getPeopleInProject(s_Project.id).then((data)=>{
-            console.log(data);
-        })
-        getgroups();
+        getPeopleList();
+        getIssueList(s_Project);
     },[s_Project])
-
-
-    const getiisue=  ()=>{
-        getgroups().then((data)=>{
-            console.log(data);
-        })
-    }
 
     const getPeopleList = ()=>{
         getProjectPeople(s_Project.id).then((data)=>{
@@ -56,8 +47,6 @@ const Dashboard = ({ project }) => {
                     </select>
                 </div>
             }
-            <button onClick={getiisue}>get issue</button>
-            <button onClick={getPeopleList}>get project details</button>
 
             <div className="container-search">
                 <h3>Agile Agents</h3><Search />
