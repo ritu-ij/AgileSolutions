@@ -21,7 +21,9 @@ function App() {
         getAuth(code).then(()=>{
           getUserData();
           getAccessableResource().then(()=>{
-            getAllProject();
+            getAllProject().then((project)=>{
+              setProject(project);
+            });
           });
         })
       } else{
