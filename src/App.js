@@ -6,6 +6,7 @@ import constants from './helpers/constants';
 import {getAuth, getUserData , getAllProject,getAccessableResource} from './api/apiCalls';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import 'font-awesome/css/font-awesome.min.css'
 
 function App() {
   const [ project , setProject ] = useState('');

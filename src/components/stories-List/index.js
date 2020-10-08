@@ -10,13 +10,13 @@ const StoriesList = ({ data }) => {
                 <>
                <div className="row head-section">
                 <div className="col-md-8 col-sm-6">
-                    <ul className="tab">
-                        <li className="selected"><a href="">Pending</a></li>
-                        <li><a href="">Ready</a></li>
+                    <ul className="nav nav-tabs tab">
+                        <li className="nav-item"><a className="nav-link active" href="">Pending</a></li>
+                        <li className="nav-item"><a className="nav-link" href="">Ready</a></li>
                     </ul>
                 </div>
                 <div className="col-md-4 col-sm-6">
-                    <button>Sync</button>
+                    <button className="sync"><i class="fa fa-spin fa-refresh" aria-hidden="true"></i></button>
                 </div>
             </div>
             <ul className="list-section">
