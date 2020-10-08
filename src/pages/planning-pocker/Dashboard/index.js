@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Search from '../../../components/Search';
+// import Search from '../../../components/Search';
 import StoriesList from '../../../components/stories-List';
 import PeopleList from '../../../components/people-list';
 import './index.scss';
@@ -39,7 +39,10 @@ const Dashboard = ({ project }) => {
 
     return (
         <div className="main-div">
-            {
+            
+
+            <div className="container-search">
+                <h3>Agile Agents</h3> {
                 Array.isArray(project) && project.length > 0 &&
                 <div>selcted project:
                     <select defaultValue={s_Project.name} onChange={(event) => { setS_Project(project[event.target.value]) }}>
@@ -47,9 +50,6 @@ const Dashboard = ({ project }) => {
                     </select>
                 </div>
             }
-
-            <div className="container-search">
-                <h3>Agile Agents</h3><Search />
             </div>
             <div className="container-stories">
                {issue && issue.issues && <StoriesList data={issue.issues || []}/>}
