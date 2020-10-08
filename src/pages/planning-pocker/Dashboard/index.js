@@ -38,22 +38,27 @@ const Dashboard = ({ project }) => {
     }
 
     return (
-        <div className="main-div">
-            
-
-            <div className="container-search">
-                <h3>Agile Agents</h3> {
-                Array.isArray(project) && project.length > 0 &&
-                <div>selcted project:
-                    <select defaultValue={s_Project.name} onChange={(event) => { setS_Project(project[event.target.value]) }}>
-                        {project.map((data, i) => <option value={i}>{data.name}</option>)}
-                    </select>
+        <div className="main-div"> 
+            <div className="container-head container-fluid">
+                <div className="row">
+                    <div className="col-md-9">
+                       <h3>Planning Poker</h3>
+                    </div> 
+                    {
+                        Array.isArray(project) && project.length > 0 &&
+                        <div className="col-md-3 text-right">Select Story Bucket: 
+                            <select defaultValue={s_Project.name} onChange={(event) => { setS_Project(project[event.target.value]) }}>
+                                {project.map((data, i) => <option value={i}>{data.name}</option>)}
+                            </select>
+                        </div>
+                    }
                 </div>
-            }
             </div>
-            <div className="container-stories">
-               {issue && issue.issues && <StoriesList data={issue.issues || []}/>}
-                <PeopleList data={people}/>
+            <div className="container-stories container-fluid">
+                <div className="row">
+                    {issue && issue.issues && <StoriesList data={issue.issues || []}/>}
+                    <PeopleList data={people}/>
+                </div>
             </div>
         </div>
     );
