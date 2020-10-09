@@ -51,9 +51,6 @@ const RetrospectiveNew = (props) => {
                 content: value,
                 edit: false
             }
-            let data = localStorage.getItem(props.match.params.id);
-            data.retro_data = prev_data;
-            localStorage.setItem(props.match.param.id, JSON.stringify(data));
             setState(prev_data);
             syncRetroData(prev_data);
         }
@@ -72,9 +69,6 @@ const RetrospectiveNew = (props) => {
         delete prev_data.boards[board_key]["retros"][effective_key]
         prev_data.boards[board_key].counter -= 1;
         setState(prev_data);
-        let data = localStorage.getItem(props.match.params.id);
-        data.retro_data = prev_data;
-        localStorage.setItem(props.match.param.id, JSON.stringify(data));
         syncRetroData(prev_data);
     }
 
