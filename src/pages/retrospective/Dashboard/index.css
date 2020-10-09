@@ -1,6 +1,9 @@
 header {
     margin-top: 20px
 }
+.container-fluid header h1{
+    text-align: left;
+}
 #retro-list-container{
     margin-top: 28px;
 }
