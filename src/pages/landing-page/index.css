@@ -1,17 +1,18 @@
 #landing-container {
   width: 800px;
   height: auto;
-  border: 2px solid lightgrey;
+  border: 3px solid white;
   padding: 50px;
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 0px 4px 10px #888888;
-  background-color: #ffffff;
+  background-color:#f4f5f7;
 }
-body {
-  background-color: #f4f5f7;
+
+header h1 {
+  margin-bottom: 25px;
 }
 header h1,
 footer {
@@ -22,8 +23,7 @@ footer {
   font-weight: bold;
 }
 .solutions-container {
-  height: 30px;
-  margin: 50px 0;
+  margin: 30px 0;
   position: relative;
   left: 50%;
   display: inline-block;

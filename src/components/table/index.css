@@ -3,6 +3,8 @@
   display: table-cell;
   padding: 10px;
   text-align: center;
+  color: #565656;
+  font-size: 16px;
 }
 .row-item{
   background: #f4f5f7;
@@ -14,6 +16,9 @@
 .table-row-head {
   font-weight: bold;
   background: rgba(9,30,66,.08) !important;
+}
+.table-row .row-item{
+  padding: 6px 10px 10px 10px;
 }
 .text-link {
   cursor: pointer;
