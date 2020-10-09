@@ -93,12 +93,21 @@ const RetrospectiveNew = (props) => {
             }
         }
     }
+    const redirectBack = (event) => {
+        const { history } = props;
+        if (event) {
+            event.stopPropagation();
+        }
+        let currentURL = window.location.pathname;
+        currentURL = currentURL.replace("Session", "Room");
+        history.replace(currentURL);
+    }
 
     return (
         <div id="container">
             <header>
+                <button className="back-btn" onClick={(ev) => { redirectBack(ev) }}><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
                 <h1 className="new-retro-title">{props.match.params.id} Retro
-
                 </h1>
                 <div className="new-retro-index">Happiness Index:
                 <span>
