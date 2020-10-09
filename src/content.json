@@ -14,7 +14,7 @@
         "Scope Changes": "+2.5%",
         "Completed Date": "2020-09-20",
         "Sprint Report": "",
-        "Retro Inputs": [],
+        "Retro Inputs":[],
         "Happiness Index": 0
     },
     {
@@ -23,10 +23,7 @@
         "Scope Changes": "0",
         "Completed Date": "2020-09-13",
         "Sprint Report": "",
-        "Retro Inputs": [
-            "1",
-            "2"
-        ],
+        "Retro Inputs": [],
         "Happiness Index": 4
     }
 ]

@@ -6,10 +6,21 @@ import './index.css';
 
 const RetrospectivePage = (props) => {
     const { content } = props;
+
+    const redirectBack = (event) => {
+        const { history } = props;
+        if (event) {
+            event.stopPropagation();
+        }
+        history.replace("/");
+    }
+
     return (
         <div id="container" className="container-fluid">
             <header>
-                <h1>EIGFOS Retrospectives</h1></header>
+                <h1>
+                    <button className="back-btn" onClick={(ev) => { redirectBack(ev) }}><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+EIGFOS Retrospectives</h1></header>
             <section id="retro-list-container">
                 <h3>Recently Created</h3>
                 <div className="retro-list">

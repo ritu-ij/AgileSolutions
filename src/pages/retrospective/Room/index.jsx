@@ -14,7 +14,11 @@ const RetroRoom = (props) => {
         boards = boards.filter(item => {
             return item.display.length > 0;
         })
-        localStorage.setItem("boards", JSON.stringify(boards));
+        let data = {
+            session: props.match.params.id,
+            boards: boards
+        }
+        localStorage.setItem(props.match.params.id, JSON.stringify(data));
         history.replace(`/Retrospective/Session/${props.match.params.id}`)
     }
 
