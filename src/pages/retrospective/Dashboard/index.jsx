@@ -20,7 +20,8 @@ const RetrospectivePage = (props) => {
             <header>
                 <h1>
                     <button className="back-btn" onClick={(ev) => { redirectBack(ev) }}><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
-EIGFOS Retrospectives</h1></header>
+                    <span className="arrow-header">EIGFOS Retrospectives
+</span></h1></header>
             <section id="retro-list-container">
                 <h3>Recently Created</h3>
                 <div className="retro-list">

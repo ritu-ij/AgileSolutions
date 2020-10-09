@@ -45,9 +45,11 @@ const RetroRoom = (props) => {
     return (
         <div id="container">
             <header>
-                <button className="back-btn" onClick={(ev) => { redirectBack(ev) }}><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
-                <h1 className="new-retro-title">{props.match.params.id} Retro</h1>
-            </header>
+                <h1>
+                    <button className="back-btn" onClick={(ev) => { redirectBack(ev) }}><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+                    <span className="arrow-header">{props.match.params.id} Retro
+                </span>
+                </h1>          </header>
             <div id="track-progress">
                 <RetroCol edit={true} DefaultContent={state} delBoard={delBoard} />
             </div>

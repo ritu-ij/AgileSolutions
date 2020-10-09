@@ -1,69 +1,57 @@
 header {
-    margin-top: 20px
+  margin-top: 20px;
 }
-.container-fluid header h1{
-    text-align: left;
+.container-fluid header h1 {
+  text-align: left;
 }
-#retro-list-container{
-    margin-top: 28px;
+#retro-list-container {
+  margin-top: 28px;
 }
-#retro-list-container h3{
-    color: #0747a6;
-    font-weight: bold;
+#retro-list-container h3 {
+  color: #0747a6;
+  font-weight: bold;
 }
-.retro-list{
-    display: table;
-    width:100%;
-    margin-bottom: 56px;
-    background-color: #f4f5f7;
-    padding-bottom: 15px;
+.retro-list {
+  display: table;
+  width: 100%;
+  margin-bottom: 56px;
+  background-color: #f4f5f7;
+  padding-bottom: 15px;
 }
-#track-progress{
-    margin-top:20px;
+#track-progress {
+  margin-top: 20px;
 }
-#improvement-tracker{
-margin-top:20px;
+#improvement-tracker {
+  margin-top: 20px;
 }
-.accomplishment-tracker,.improvement-tracker{
-    width:50%;
-    float: left;
+.accomplishment-tracker,
+.improvement-tracker {
+  width: 50%;
+  float: left;
 }
-.accomplishment-tracker{
-    padding-left:10px;
+.accomplishment-tracker {
+  padding-left: 10px;
 }
-.improvement-tracker{
-    padding-right:10px
+.improvement-tracker {
+  padding-right: 10px;
 }
-.star-score{
-    left: calc(50% - 37px);
+.star-score {
+  left: calc(50% - 37px);
 }
-.accomplishment-tracker input[type=checkbox] {
-    display:none;
+.accomplishment-tracker input[type="checkbox"] {
+  display: none;
 }
 
-.accomplishment-tracker input[type=checkbox] + span {
-    display:inline-block;
-    width: 100%;
-    padding-left: 32px;
+.accomplishment-tracker input[type="checkbox"] + span {
+  display: inline-block;
+  width: 100%;
+  padding-left: 32px;
 }
-.accomplishment-tracker input[type=checkbox]:checked,
-.accomplishment-tracker input[type=checkbox]:checked + span {
-    background: url(../../../assets/images/checked.png) no-repeat;
-} 
+.accomplishment-tracker input[type="checkbox"]:checked,
+.accomplishment-tracker input[type="checkbox"]:checked + span {
+  background: url(../../../assets/images/checked.png) no-repeat;
+}
 
 .accomplishment-tracker .tracking-item {
-    padding: 6px 0
-}
-.back-btn{
-    background-color: transparent;
-    border: 2px solid #000;
-    outline: none;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    line-height: 20px;
-    margin-right: 10px;
-    cursor: pointer;
-    font-weight: normal !important;
-    font-size: 16px;
+  padding: 6px 0;
 }

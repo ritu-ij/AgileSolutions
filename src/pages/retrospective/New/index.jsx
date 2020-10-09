@@ -105,8 +105,10 @@ const RetrospectiveNew = (props) => {
     return (
         <div id="container">
             <header>
-                <button className="back-btn" onClick={(ev) => { redirectBack(ev) }}><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
-                <h1 className="new-retro-title">{props.match.params.id} Retro
+                <h1>
+                    <button className="back-btn" onClick={(ev) => { redirectBack(ev) }}><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
+                    <span className="arrow-header">{props.match.params.id} Retro
+                </span>
                 </h1>
                 <div className="new-retro-index">Happiness Index:
                 <span>
