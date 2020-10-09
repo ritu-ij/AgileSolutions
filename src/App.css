@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+h1 {
+  color: #222222;
+  font-weight: bold;
+  font-size: 34px;
+}
+
+h3 {
+  font-size: 18px;
+  margin-bottom: 20px;
+}

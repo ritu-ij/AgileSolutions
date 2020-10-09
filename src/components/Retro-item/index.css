@@ -11,12 +11,13 @@ margin-top:5px;
     width:100%;
     min-height: 40px;
     border:none;
+    color: #000;
 }
 .retro-item-container input:focus{
     outline:none;
 }
 .retro-content{
-    color: #FFFFFF;
+    color: #000;
     word-wrap: break-word;
     min-height: 40px;
     padding: 5px;
@@ -31,4 +32,5 @@ margin-top:5px;
     height: 20px;
     padding: 0 5px 5px;
     user-select: none;
+    background: rgba(0, 0, 0, 0.06);
 }

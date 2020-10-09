@@ -7,7 +7,7 @@ import './index.css';
 const RetrospectivePage = (props) => {
     const { content } = props;
     return (
-        <div id="container">
+        <div id="container" className="container-fluid">
             <header>
                 <h1>EIGFOS Retrospectives</h1></header>
             <section id="retro-list-container">

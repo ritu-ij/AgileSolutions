@@ -19,6 +19,7 @@ const Tracker = (props) => {
                             <div className="tracking-item" key={key}>
                                 <input type="checkbox" {...checked} />
                                 <span>{item}</span>
+                                {/* <span className="completiontime">Completed on Sept 20, 2020</span> */}
                             </div>
                         )
                     })
