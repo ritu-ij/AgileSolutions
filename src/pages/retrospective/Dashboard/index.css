@@ -1,5 +1,8 @@
+header {
+    margin-top: 20px
+}
 #retro-list-container{
-    margin-top: 20px;
+    margin-top: 28px;
 }
 #retro-list-container h3{
     color: #0747a6;
@@ -8,8 +11,9 @@
 .retro-list{
     display: table;
     width:100%;
-    margin-top:5px;
-    padding:10px;
+    margin-bottom: 56px;
+    background-color: #f4f5f7;
+    padding-bottom: 15px;
 }
 #track-progress{
     margin-top:20px;
@@ -29,4 +33,21 @@ margin-top:20px;
 }
 .star-score{
     left: calc(50% - 37px);
+}
+.accomplishment-tracker input[type=checkbox] {
+    display:none;
+}
+
+.accomplishment-tracker input[type=checkbox] + span {
+    display:inline-block;
+    width: 100%;
+    padding-left: 32px;
+}
+.accomplishment-tracker input[type=checkbox]:checked,
+.accomplishment-tracker input[type=checkbox]:checked + span {
+    background: url(../../../assets/images/checked.png) no-repeat;
+} 
+
+.accomplishment-tracker .tracking-item {
+    padding: 6px 0
 }

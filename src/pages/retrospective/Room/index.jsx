@@ -17,6 +17,7 @@ const RetroRoom = (props) => {
         localStorage.setItem("boards", JSON.stringify(boards));
         history.replace(`/Retrospective/Session/${props.match.params.id}`)
     }
+
     const delBoard = (board_key) => {
         let prev_state = { ...state };
         console.log(board_key);
@@ -29,9 +30,18 @@ const RetroRoom = (props) => {
         console.log(prev_state);
         setState(prev_state);
     }
+
+    const redirectBack = (event) => {
+        const { history } = props;
+        if (event) {
+            event.stopPropagation();
+        }
+        history.replace(`/Retrospective/Dashboard`);
+    }
     return (
         <div id="container">
             <header>
+                <button className="back-btn" onClick={(ev) => { redirectBack(ev) }}><i class="fa fa-arrow-left" aria-hidden="true"></i></button>
                 <h1 className="new-retro-title">{props.match.params.id} Retro</h1>
             </header>
             <div id="track-progress">

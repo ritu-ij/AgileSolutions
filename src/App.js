@@ -1,7 +1,7 @@
 import React from 'react';
 import {createBrowserHistory} from 'history';
 import {BrowserRouter, Route, } from 'react-router-dom';
-//import PlanningPoker from './pages/planning-poker';
+import LandingPage from './pages/landing-page';
 import RetrospectiveDashboard from './pages/retrospective/Dashboard';
 import RetrospectiveNew from './pages/retrospective/New';
 import RetroRoom from './pages/retrospective/Room';
@@ -13,7 +13,7 @@ function App() {
   return (
     <BrowserRouter history={history}>
       {/* <Route path="/" component={PlanningPoker} /> */}
-      <Route exact path='/' render={(props) => (<RetrospectiveDashboard {...props} content={RetroContent} />)} />
+      <Route exact path='/' render={(props) => (<LandingPage {...props} content={RetroContent} />)} />
       <Route exact path='/Retrospective/Session/:id' render={(props) => (<RetrospectiveNew {...props} content={RetroContent} />)} />
       <Route exact path='/Retrospective/Room/:id' render={(props) => (<RetroRoom {...props} content={RetroContent} />)} />
       <Route exact path='/Retrospective/Dashboard' render={(props) => (<RetrospectiveDashboard {...props} content={RetroContent} />)} />
