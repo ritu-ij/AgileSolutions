@@ -21,12 +21,23 @@ const TableRow = (props) => {
         history.replace(`/Retrospective/Room/${sprint}`);
     }
 
+    const joinRetro = (event, sprint) => {
+        if (event) {
+            event.stopPropagation();
+        }
+        history.replace(`/Retrospective/Session/${sprint}`);
+    }
+
     const formatDetailedReports = (val, createNew) => {
         if (val) {
             return (<span className={'text-link'} onClick={(event) => { showDetails(event, val) }}>View</span>)
         } else {
             if (createNew) {
-                return (<span className={'text-link'} onClick={(event) => { createRetro(event, rowData["Sprint"]) }}>Create New</span>)
+                if (localStorage.getItem(rowData["Sprint"])) {
+                    return (<span className={'text-link'} onClick={(event) => { joinRetro(event, rowData["Sprint"]) }}>Join</span>)
+                } else {
+                    return (<span className={'text-link'} onClick={(event) => { createRetro(event, rowData["Sprint"]) }}>Create New</span>)
+                }
             }
             return (<span>NA</span>)
         }

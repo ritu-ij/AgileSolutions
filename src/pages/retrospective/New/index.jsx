@@ -6,18 +6,17 @@ import DefaultContent from './content.json';
 import './index.css';
 
 const RetrospectiveNew = (props) => {
-    //const { content } = props;
     let col_data = {};
     const [state, setState] = useState({ boards: { ...col_data } });
     const [content, setContent] = useState({ retro_boards_config: [] });
     useEffect(() => {
-        let content1 = JSON.parse(localStorage.getItem("boards"));
+        let content1 = JSON.parse(localStorage.getItem(props.match.params.id));
         if (content1) {
-            setContent({ retro_boards_config: content1 });
+            setContent({ retro_boards_config: content1.boards });
         } else {
             content1 = DefaultContent.retro_boards_config;
         }
-        content1.map(item => {
+        content1.boards.map(item => {
             col_data[item.key] = {
                 retros: {},
                 counter: 0
@@ -52,6 +51,9 @@ const RetrospectiveNew = (props) => {
                 content: value,
                 edit: false
             }
+            let data = localStorage.getItem(props.match.params.id);
+            data.retro_data = prev_data;
+            localStorage.setItem(props.match.param.id, JSON.stringify(data));
             setState(prev_data);
             syncRetroData(prev_data);
         }
@@ -70,6 +72,9 @@ const RetrospectiveNew = (props) => {
         delete prev_data.boards[board_key]["retros"][effective_key]
         prev_data.boards[board_key].counter -= 1;
         setState(prev_data);
+        let data = localStorage.getItem(props.match.params.id);
+        data.retro_data = prev_data;
+        localStorage.setItem(props.match.param.id, JSON.stringify(data));
         syncRetroData(prev_data);
     }
 
