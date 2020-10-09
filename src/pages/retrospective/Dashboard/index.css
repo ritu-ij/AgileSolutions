@@ -34,3 +34,20 @@ margin-top:20px;
 .star-score{
     left: calc(50% - 37px);
 }
+.accomplishment-tracker input[type=checkbox] {
+    display:none;
+}
+
+.accomplishment-tracker input[type=checkbox] + span {
+    display:inline-block;
+    width: 100%;
+    padding-left: 32px;
+}
+.accomplishment-tracker input[type=checkbox]:checked,
+.accomplishment-tracker input[type=checkbox]:checked + span {
+    background: url(../../../assets/images/checked.png) no-repeat;
+} 
+
+.accomplishment-tracker .tracking-item {
+    padding: 6px 0
+}
