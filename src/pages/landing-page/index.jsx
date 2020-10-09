@@ -22,9 +22,9 @@ const LandingPage = (props) => {
             <header>
                 <h1>Agile Solutions</h1>
                 <p className="intro-para">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. In sit amet viverra elit, in varius sapien. Pellentesque enim quam, semper laoreet dignissim in, commodo a velit. Nunc commodo quam non eros mattis convallis. Fusce aliquam metus diam, convallis accumsan mi accumsan ac. Pellentesque vel nunc lectus. Aenean tempus dolor sit amet massa porta, non varius ligula tempor. Duis sed posuere urna.
-
-                    Fusce sapien ante, faucibus sit amet dui vitae, malesuada suscipit risus. Vivamus dignissim nulla vel est cursus efficitur. Praesent rhoncus sit amet urna sit amet pellentesque. Duis condimentum ligula ac felis placerat, in dapibus leo porttitor. Aenean non nulla id tortor facilisis viverra. Etiam quis vestibulum tortor. Aliquam erat volutpat. Etiam quis malesuada justo. Phasellus laoreet ipsum turpis, in sodales metus hendrerit at. Etiam convallis est eget tincidunt aliquet. Vestibulum a justo eu dui tristique porttitor in non est. Suspendisse et neque nec eros cursus tristique vel sit amet magna. Etiam varius justo ligula, volutpat lobortis dui eleifend ac. Duis tellus magna, viverra sed nibh quis, commodo aliquam orci. In sagittis posuere porta.
+                    Whether your team has always been distributed or is just getting use to remote work, the need for collaboration and connection is consistent. 
+However, with multiple tools implemented in different ways, it can be very difficult to follow all Scrum practices in a fun, cost-effective way. Enter a scalable, easy-to-use, all-in-one tool for supporting each other and our goals, encouraging collaboration, 
+                    sharing feedback, tracking metrics, and driving for continuous improvement.
                 </p>
             </header>
             <section className="solutions-container">
